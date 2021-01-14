@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<!--TOP - rock, paper, scissors project-->
 <html>
   <head>
     <meta charset="utf-8">
@@ -11,6 +11,72 @@
   </head>
   <body>
     
-    <script src="" async defer></script>
+    <script src="" async defer>
+//code starts here, copy below....
+      let choices = ['rock', 'paper', 'scissors'];
+
+      function computerPlay() {
+        // random number between 1 and 3. 
+        // * by 3 to ensure number does not exceed 3
+        let randomize = Math.floor(Math.random() * 3); 
+        //choices is selected based on randomized number
+        return choices[randomize]; 
+        //returns results when function is invoked
+      }
+
+      //stores user choice
+      //.toLowerCase() for case insensitive
+      //need to loop the prompt until rock paper or scissors is entered
+      function userSelect() {
+      let choice = prompt('enter rock, paper, or scissors').toLowerCase();
+      switch (choice) {
+        case 'rock':
+        case 'paper':
+        case 'scissors':
+          return playerSelection = choice; //stores the input into var
+          //return 'you selected ' + choice;
+          break;
+        case '': //if no value is entered
+          return 'no value entered';
+          break;
+      }
+    }
+    //const computerSelection = computerPlay();
+
+    function playRound() {
+      let playerSelection = '';
+      let computerSelection = '';
+      let w = console.log('you win');
+      let l = console.log('you lose');
+      computerSelection = computerPlay();
+      playerSelection = userSelect(); 
+      console.log('player selected ' + playerSelection + ' - cpu selected ' + computerSelection);
+      switch (playerSelection, computerSelection) {
+        case ('rock', 'paper'):
+            l;
+            break;
+        case ('paper', 'scissors'):
+            l;
+            break;
+        case ('scissors', 'rock'): 
+            l;
+            break;
+        case ('rock', 'scissors'): 
+            w;
+            break;
+        case ('scissors', 'paper'): 
+            w;
+            break;
+        case ('paper', 'rock'):
+            w;
+            break;
+        case (playerSelection === computerSelection): 
+            console.log('draw');
+      }
+    }
+
+      
+
+    </script>
   </body>
 </html>
