@@ -91,7 +91,7 @@ function scoreKeep() {
 //need to connect the loop length to score
 //need a function for check score
 function playGame() {
-  for (let i = 0; i <= 9; i++) {
+  for (let i = 0; i <= 14; i++) {
     playRound();
     scoreKeep();
   }
