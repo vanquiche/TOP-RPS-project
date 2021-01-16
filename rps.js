@@ -5,8 +5,6 @@ let computerSelection = '';
 let result = ['player loses!', 'player wins!', 'draw'];
 
 function computerPlay() {
-  // random number between 1 and 3. 
-  // * by 3 to ensure number does not exceed 3
   let randomize = Math.floor(Math.random() * 3);
   return choices[randomize];
 }
@@ -18,7 +16,7 @@ function userSelect() {
   }
   if (userInput != 'rock' && userInput != 'paper' && userInput != 'scissors') {
     console.log(userInput + ' is not a valid option');
-  } 
+  }
   return userInput;
 }
 //plays single round with commputer
@@ -76,23 +74,19 @@ function playRound() {
 
 let cpuScore = 0;
 let plyrScore = 0;
+let results = (plyrScore == 5) ? 'player wins!' : 'computer wins!';
 
+// edit scorekeep function to be lighter, using '||' condition
 function scoreKeep() {
-  if (cpuScore >= 5) { 
-    cpuScore = 0; //resets score to 0 when 5pts is achieved
-    alert('computer wins!' + ' computer score: ' + '5' + ' player score: ' + plyrScore);
-  }
-  if (plyrScore >= 5) {
-    plyrScore = 0;
-    alert('player wins!' + ' computer score: ' + cpuScore + ' player score: ' + '5');
+  if (cpuScore >= 5 || plyrScore >= 5) {
+    console.log(results + ' computer score: ' + cpuScore + ' player score: ' + plyrScore);
   }
 }
-
-//need to connect the loop length to score
-//need a function for check score
 function playGame() {
-  for (let i = 0; i <= 14; i++) {
+  for (let i = 0; i <= 30; i++) {
     playRound();
-    scoreKeep();
+    if (cpuScore == 5 || plyrScore == 5) {
+      return scoreKeep();
+    }
   }
 }
